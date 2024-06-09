@@ -1,0 +1,7 @@
+[package]
+name = "use-rusty-cli"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+a_rusty_cli = "0.1.0"
