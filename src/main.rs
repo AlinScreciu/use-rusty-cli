@@ -1,7 +1,8 @@
+mod options;
+
 use a_rusty_cli::{Command, CommandError, CommandManager, Opt, OptValue};
 
 struct EchoCommand;
-
 
 impl Command for EchoCommand {
     fn run(
@@ -82,12 +83,12 @@ impl Command for LsCommand {
     }
 }
 
-
 fn main() {
     let mut manager = CommandManager::new();
-    
+
     manager.add_command("echo".to_string(), Box::new(EchoCommand));
     manager.add_command("ls".to_string(), Box::new(LsCommand));
-    
+    manager.add_command("test".to_string(), Box::new(options::TestCommand));
+
     let _ = manager.run(std::env::args().skip(1).collect());
 }
